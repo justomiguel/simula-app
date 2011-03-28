@@ -21,21 +21,28 @@ public class UISimulacion extends MIDlet implements CommandListener {
     private List Menu;
     private Form CuadradosMedios;
     private TextField inputTextField;
-    private TextField iterations;
     private Spacer spacer;
+    private TextField iterations;
     private StringItem resultStringItem;
     private Form ProductosMedios;
     private TextField inputprodu;
     private TextField inputprodu2;
-    private TextField itearcionesprodu;
     private Spacer spacer1;
+    private TextField itearcionesprodu;
     private StringItem stringItem;
     private Form ProductosContante;
-    private TextField textField;
-    private TextField textField1;
     private TextField textField2;
     private Spacer spacer2;
     private StringItem stringItem1;
+    private TextField textField;
+    private TextField textField1;
+    private Form Lineal;
+    private TextField textField3;
+    private TextField textField4;
+    private TextField textField5;
+    private TextField textField6;
+    private TextField textField7;
+    private StringItem stringItem2;
     private Command itemCommand;
     private Command backCommand;
     private Command exitCommand;
@@ -43,6 +50,8 @@ public class UISimulacion extends MIDlet implements CommandListener {
     private Command backCommand1;
     private Command itemCommand2;
     private Command backCommand2;
+    private Command backCommand3;
+    private Command itemCommand3;
     private Image image;
     //</editor-fold>//GEN-END:|fields|0|
 
@@ -145,25 +154,60 @@ public class UISimulacion extends MIDlet implements CommandListener {
                 }
 //GEN-LINE:|7-commandAction|4|29-postAction
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|5|20-preAction
+            }//GEN-BEGIN:|7-commandAction|5|75-preAction
+        } else if (displayable == Lineal) {
+            if (command == backCommand3) {//GEN-END:|7-commandAction|5|75-preAction
+                // write pre-action user code here
+                switchDisplayable(null, getMenu());//GEN-LINE:|7-commandAction|6|75-postAction
+                // write post-action user code here
+            } else if (command == itemCommand3) {//GEN-LINE:|7-commandAction|7|77-preAction
+                // write pre-action user code here
+//GEN-LINE:|7-commandAction|8|77-postAction
+                // write post-action user code here
+
+                int a = Integer.parseInt(textField3.getString());
+                long Xo = Integer.parseInt(textField4.getString());;
+                int c = Integer.parseInt(textField5.getString());;
+                int m = Integer.parseInt(textField6.getString());;
+                if (a >0 && c >0 && m > 1){
+                    int limite = 0;
+                    try{
+                        limite = Integer.parseInt(textField7.getString());
+                    } catch (NumberFormatException e){
+                        limite = 1;
+                    }
+                    long result;
+                    stringItem2.setLabel("Resultado:");
+                    this.stringItem2.setText("");
+                    for (int i = 0; i < limite; i++) {
+                        result = Algorythms.lineal(a,Xo,c,m);
+                        long r = (result*100 / (m-1));
+                        this.stringItem2.setText(stringItem2.getText()+"\n "+(i+1)+".- 0,"+r);
+                        Xo = result;
+                    }
+                } else {
+                    stringItem2.setLabel("Fijate los numeros viste");
+                    stringItem2.setText("");
+                }
+            }//GEN-BEGIN:|7-commandAction|9|20-preAction
         } else if (displayable == Menu) {
-            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|5|20-preAction
+            if (command == List.SELECT_COMMAND) {//GEN-END:|7-commandAction|9|20-preAction
                 // write pre-action user code here
-                MenuAction();//GEN-LINE:|7-commandAction|6|20-postAction
+                MenuAction();//GEN-LINE:|7-commandAction|10|20-postAction
                 // write post-action user code here
-            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|7|37-preAction
+            } else if (command == exitCommand) {//GEN-LINE:|7-commandAction|11|37-preAction
                 // write pre-action user code here
-                exitMIDlet();//GEN-LINE:|7-commandAction|8|37-postAction
+                exitMIDlet();//GEN-LINE:|7-commandAction|12|37-postAction
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|9|61-preAction
+            }//GEN-BEGIN:|7-commandAction|13|61-preAction
         } else if (displayable == ProductosContante) {
-            if (command == backCommand2) {//GEN-END:|7-commandAction|9|61-preAction
+            if (command == backCommand2) {//GEN-END:|7-commandAction|13|61-preAction
                 // write pre-action user code here
-                switchDisplayable(null, getMenu());//GEN-LINE:|7-commandAction|10|61-postAction
+                switchDisplayable(null, getMenu());//GEN-LINE:|7-commandAction|14|61-postAction
                 // write post-action user code here
-            } else if (command == itemCommand2) {//GEN-LINE:|7-commandAction|11|59-preAction
+            } else if (command == itemCommand2) {//GEN-LINE:|7-commandAction|15|59-preAction
                 // write pre-action user code here
-//GEN-LINE:|7-commandAction|12|59-postAction
+//GEN-LINE:|7-commandAction|16|59-postAction
                 // write post-action user code here
                 String seed1 = textField.getString();
                  String a = textField1.getString();
@@ -186,15 +230,15 @@ public class UISimulacion extends MIDlet implements CommandListener {
                     stringItem1.setLabel("La semilla es muy chica");
                     stringItem1.setText("");
                 }
-            }//GEN-BEGIN:|7-commandAction|13|45-preAction
+            }//GEN-BEGIN:|7-commandAction|17|45-preAction
         } else if (displayable == ProductosMedios) {
-            if (command == backCommand1) {//GEN-END:|7-commandAction|13|45-preAction
+            if (command == backCommand1) {//GEN-END:|7-commandAction|17|45-preAction
                 // write pre-action user code here
-                switchDisplayable(null, getMenu());//GEN-LINE:|7-commandAction|14|45-postAction
+                switchDisplayable(null, getMenu());//GEN-LINE:|7-commandAction|18|45-postAction
                 // write post-action user code here
-            } else if (command == itemCommand1) {//GEN-LINE:|7-commandAction|15|43-preAction
+            } else if (command == itemCommand1) {//GEN-LINE:|7-commandAction|19|43-preAction
                 // write pre-action user code here
-//GEN-LINE:|7-commandAction|16|43-postAction
+//GEN-LINE:|7-commandAction|20|43-postAction
                 // write post-action user code here
                  String seed1 = inputprodu.getString();
                  String seed2 = inputprodu2.getString();
@@ -218,17 +262,17 @@ public class UISimulacion extends MIDlet implements CommandListener {
                     stringItem.setLabel("La semilla es muy chica");
                     stringItem.setText("");
                 }
-            }//GEN-BEGIN:|7-commandAction|17|16-preAction
+            }//GEN-BEGIN:|7-commandAction|21|16-preAction
         } else if (displayable == splashScreen) {
-            if (command == SplashScreen.DISMISS_COMMAND) {//GEN-END:|7-commandAction|17|16-preAction
+            if (command == SplashScreen.DISMISS_COMMAND) {//GEN-END:|7-commandAction|21|16-preAction
                 // write pre-action user code here
-                switchDisplayable(null, getMenu());//GEN-LINE:|7-commandAction|18|16-postAction
+                switchDisplayable(null, getMenu());//GEN-LINE:|7-commandAction|22|16-postAction
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|19|7-postCommandAction
-        }//GEN-END:|7-commandAction|19|7-postCommandAction
+            }//GEN-BEGIN:|7-commandAction|23|7-postCommandAction
+        }//GEN-END:|7-commandAction|23|7-postCommandAction
         // write post-action user code here
-    }//GEN-BEGIN:|7-commandAction|20|
-    //</editor-fold>//GEN-END:|7-commandAction|20|
+    }//GEN-BEGIN:|7-commandAction|24|
+    //</editor-fold>//GEN-END:|7-commandAction|24|
 
     //<editor-fold defaultstate="collapsed" desc=" Generated Getter: splashScreen ">//GEN-BEGIN:|14-getter|0|14-preInit
     /**
@@ -239,7 +283,7 @@ public class UISimulacion extends MIDlet implements CommandListener {
         if (splashScreen == null) {//GEN-END:|14-getter|0|14-preInit
             // write pre-init user code here
             splashScreen = new SplashScreen(getDisplay());//GEN-BEGIN:|14-getter|1|14-postInit
-            splashScreen.setTitle("splashScreen");
+            splashScreen.setTitle("");
             splashScreen.setCommandListener(this);
             splashScreen.setFullScreenMode(true);
             splashScreen.setImage(getImage());
@@ -264,9 +308,10 @@ public class UISimulacion extends MIDlet implements CommandListener {
             Menu.append("Cuadrados Medios", null);
             Menu.append("Productos Medios", null);
             Menu.append("Producto Constante", null);
+            Menu.append("Algoritmo Lineal", null);
             Menu.addCommand(getExitCommand());
             Menu.setCommandListener(this);
-            Menu.setSelectedFlags(new boolean[] { false, false, false });//GEN-END:|18-getter|1|18-postInit
+            Menu.setSelectedFlags(new boolean[] { false, false, false, false });//GEN-END:|18-getter|1|18-postInit
             // write post-init user code here
         }//GEN-BEGIN:|18-getter|2|
         return Menu;
@@ -307,11 +352,22 @@ public class UISimulacion extends MIDlet implements CommandListener {
                 this.textField2.setString("1");
                 this.stringItem1.setLabel("");
                 this.stringItem1.setText("");
-            }//GEN-BEGIN:|18-action|7|18-postAction
-        }//GEN-END:|18-action|7|18-postAction
+            } else if (__selectedString.equals("Algoritmo Lineal")) {//GEN-LINE:|18-action|7|72-preAction
+                // write pre-action user code here
+                switchDisplayable(null, getLineal());//GEN-LINE:|18-action|8|72-postAction
+                // write post-action user code here
+                this.textField3.setString("");
+                this.textField4.setString("");
+                this.textField5.setString("");
+                this.textField6.setString("");
+                this.textField7.setString("");
+                this.stringItem2.setLabel("");
+                this.stringItem2.setText("");
+            }//GEN-BEGIN:|18-action|9|18-postAction
+        }//GEN-END:|18-action|9|18-postAction
         // enter post-action user code here
-    }//GEN-BEGIN:|18-action|8|
-    //</editor-fold>//GEN-END:|18-action|8|
+    }//GEN-BEGIN:|18-action|10|
+    //</editor-fold>//GEN-END:|18-action|10|
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc=" Generated Getter: CuadradosMedios ">//GEN-BEGIN:|24-getter|0|24-preInit
@@ -447,7 +503,7 @@ public class UISimulacion extends MIDlet implements CommandListener {
         if (image == null) {//GEN-END:|40-getter|0|40-preInit
             // write pre-init user code here
             try {//GEN-BEGIN:|40-getter|1|40-@java.io.IOException
-                image = Image.createImage("/pata furiosa.jpg");
+                image = Image.createImage("/intro.png");
             } catch (java.io.IOException e) {//GEN-END:|40-getter|1|40-@java.io.IOException
                 e.printStackTrace();
             }//GEN-LINE:|40-getter|2|40-postInit
@@ -709,6 +765,147 @@ public class UISimulacion extends MIDlet implements CommandListener {
         return stringItem1;
     }
     //</editor-fold>//GEN-END:|70-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: Lineal ">//GEN-BEGIN:|71-getter|0|71-preInit
+    /**
+     * Returns an initiliazed instance of Lineal component.
+     * @return the initialized component instance
+     */
+    public Form getLineal() {
+        if (Lineal == null) {//GEN-END:|71-getter|0|71-preInit
+            // write pre-init user code here
+            Lineal = new Form("Algoritmo Lineal", new Item[] { getTextField3(), getTextField4(), getTextField5(), getTextField6(), getTextField7(), getStringItem2() });//GEN-BEGIN:|71-getter|1|71-postInit
+            Lineal.addCommand(getBackCommand3());
+            Lineal.addCommand(getItemCommand3());
+            Lineal.setCommandListener(this);//GEN-END:|71-getter|1|71-postInit
+            // write post-init user code here
+
+        }//GEN-BEGIN:|71-getter|2|
+        return Lineal;
+    }
+    //</editor-fold>//GEN-END:|71-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: textField3 ">//GEN-BEGIN:|79-getter|0|79-preInit
+    /**
+     * Returns an initiliazed instance of textField3 component.
+     * @return the initialized component instance
+     */
+    public TextField getTextField3() {
+        if (textField3 == null) {//GEN-END:|79-getter|0|79-preInit
+            // write pre-init user code here
+            textField3 = new TextField("a", null, 32, TextField.ANY);//GEN-LINE:|79-getter|1|79-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|79-getter|2|
+        return textField3;
+    }
+    //</editor-fold>//GEN-END:|79-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: textField4 ">//GEN-BEGIN:|80-getter|0|80-preInit
+    /**
+     * Returns an initiliazed instance of textField4 component.
+     * @return the initialized component instance
+     */
+    public TextField getTextField4() {
+        if (textField4 == null) {//GEN-END:|80-getter|0|80-preInit
+            // write pre-init user code here
+            textField4 = new TextField("Xo", null, 32, TextField.ANY);//GEN-LINE:|80-getter|1|80-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|80-getter|2|
+        return textField4;
+    }
+    //</editor-fold>//GEN-END:|80-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: textField5 ">//GEN-BEGIN:|81-getter|0|81-preInit
+    /**
+     * Returns an initiliazed instance of textField5 component.
+     * @return the initialized component instance
+     */
+    public TextField getTextField5() {
+        if (textField5 == null) {//GEN-END:|81-getter|0|81-preInit
+            // write pre-init user code here
+            textField5 = new TextField("c", null, 32, TextField.ANY);//GEN-LINE:|81-getter|1|81-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|81-getter|2|
+        return textField5;
+    }
+    //</editor-fold>//GEN-END:|81-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: textField6 ">//GEN-BEGIN:|82-getter|0|82-preInit
+    /**
+     * Returns an initiliazed instance of textField6 component.
+     * @return the initialized component instance
+     */
+    public TextField getTextField6() {
+        if (textField6 == null) {//GEN-END:|82-getter|0|82-preInit
+            // write pre-init user code here
+            textField6 = new TextField("m", null, 32, TextField.ANY);//GEN-LINE:|82-getter|1|82-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|82-getter|2|
+        return textField6;
+    }
+    //</editor-fold>//GEN-END:|82-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: textField7 ">//GEN-BEGIN:|83-getter|0|83-preInit
+    /**
+     * Returns an initiliazed instance of textField7 component.
+     * @return the initialized component instance
+     */
+    public TextField getTextField7() {
+        if (textField7 == null) {//GEN-END:|83-getter|0|83-preInit
+            // write pre-init user code here
+            textField7 = new TextField("Cantidad de Iteraciones", null, 32, TextField.ANY);//GEN-LINE:|83-getter|1|83-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|83-getter|2|
+        return textField7;
+    }
+    //</editor-fold>//GEN-END:|83-getter|2|
+
+
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: backCommand3 ">//GEN-BEGIN:|74-getter|0|74-preInit
+    /**
+     * Returns an initiliazed instance of backCommand3 component.
+     * @return the initialized component instance
+     */
+    public Command getBackCommand3() {
+        if (backCommand3 == null) {//GEN-END:|74-getter|0|74-preInit
+            // write pre-init user code here
+            backCommand3 = new Command("Back", Command.BACK, 0);//GEN-LINE:|74-getter|1|74-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|74-getter|2|
+        return backCommand3;
+    }
+    //</editor-fold>//GEN-END:|74-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: itemCommand3 ">//GEN-BEGIN:|76-getter|0|76-preInit
+    /**
+     * Returns an initiliazed instance of itemCommand3 component.
+     * @return the initialized component instance
+     */
+    public Command getItemCommand3() {
+        if (itemCommand3 == null) {//GEN-END:|76-getter|0|76-preInit
+            // write pre-init user code here
+            itemCommand3 = new Command("Item", Command.ITEM, 0);//GEN-LINE:|76-getter|1|76-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|76-getter|2|
+        return itemCommand3;
+    }
+    //</editor-fold>//GEN-END:|76-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: stringItem2 ">//GEN-BEGIN:|85-getter|0|85-preInit
+    /**
+     * Returns an initiliazed instance of stringItem2 component.
+     * @return the initialized component instance
+     */
+    public StringItem getStringItem2() {
+        if (stringItem2 == null) {//GEN-END:|85-getter|0|85-preInit
+            // write pre-init user code here
+            stringItem2 = new StringItem("Resultado:", null);//GEN-LINE:|85-getter|1|85-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|85-getter|2|
+        return stringItem2;
+    }
+    //</editor-fold>//GEN-END:|85-getter|2|
 
     /**
      * Returns a display instance.
