@@ -66,4 +66,9 @@ public class Algorythms {
         return (Integer.parseInt(boxFinal));
     }
 
+    public static long lineal(long a, long Xi, long c, long m){
+        long x2 = (a*Xi+c)%m;
+        return x2;
+    }
+
 }
