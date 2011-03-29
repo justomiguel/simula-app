@@ -181,7 +181,7 @@ public class UISimulacion extends MIDlet implements CommandListener {
                     this.stringItem2.setText("");
                     for (int i = 0; i < limite; i++) {
                         result = Algorythms.lineal(a,Xo,c,m);
-                        long r = (result*100 / (m-1));
+                        long r = (result*1000000 / (m-1));
                         this.stringItem2.setText(stringItem2.getText()+"\n "+(i+1)+".- 0,"+r);
                         Xo = result;
                     }
