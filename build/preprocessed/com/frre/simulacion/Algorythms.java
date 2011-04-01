@@ -71,4 +71,9 @@ public class Algorythms {
         return x2;
     }
 
+    public static long lineal(long a, long Xi,long m){
+        long x2 = (a*Xi)%m;
+        return x2;
+    }
+
 }
