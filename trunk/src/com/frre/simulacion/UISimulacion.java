@@ -38,11 +38,11 @@ public class UISimulacion extends MIDlet implements CommandListener {
     private TextField textField1;
     private Form Lineal;
     private TextField textField3;
-    private TextField textField4;
-    private TextField textField5;
-    private TextField textField6;
-    private TextField textField7;
     private StringItem stringItem2;
+    private TextField textField5;
+    private TextField textField4;
+    private TextField textField7;
+    private TextField textField6;
     private Command itemCommand;
     private Command backCommand;
     private Command exitCommand;
@@ -50,8 +50,8 @@ public class UISimulacion extends MIDlet implements CommandListener {
     private Command backCommand1;
     private Command itemCommand2;
     private Command backCommand2;
-    private Command backCommand3;
     private Command itemCommand3;
+    private Command backCommand3;
     private Image image;
     //</editor-fold>//GEN-END:|fields|0|
 
